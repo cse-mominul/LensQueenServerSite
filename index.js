@@ -25,6 +25,12 @@ try{
         const services = await cursor.limit(3).toArray();
         res.send(services);
     });
+    app.get('/ser',async (req,res)=>{
+        const query ={}
+        const cursor = serviceCollection.find(query).sort({title: 1})
+        const ser = await cursor.toArray();
+        res.send(ser);
+    });
     app.get('/reviews',async (req,res)=>{
 
         const query ={}
