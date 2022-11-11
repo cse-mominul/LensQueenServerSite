@@ -22,7 +22,7 @@ try{
 
         const query ={}
         const cursor = serviceCollection.find(query).sort({title: 1})
-        const services = await cursor.toArray();
+        const services = await cursor.limit(3).toArray();
         res.send(services);
     });
     app.get('/reviews',async (req,res)=>{
